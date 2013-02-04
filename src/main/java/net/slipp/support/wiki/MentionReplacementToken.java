@@ -47,7 +47,7 @@ public class MentionReplacementToken extends PatternBasedElement {
             if (profileUrl != null) {
                 Attributes attributes = new LinkAttributes();
                 attributes.setCssClass("author-name");
-                getBuilder().link(attributes, profileUrl, name);
+                getBuilder().link(attributes, profileUrl, DEFAULT_MENTION_PREFIX + name);
             } else {
                 getBuilder().characters(DEFAULT_MENTION_PREFIX + name);
             }
