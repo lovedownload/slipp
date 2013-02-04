@@ -5,13 +5,30 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import net.slipp.service.user.SocialUserService;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@RunWith(MockitoJUnitRunner.class)
 public class SlippWikiUtilsTest {
 	private Logger logger = LoggerFactory.getLogger(SlippWikiUtilsTest.class);
 
+    @Mock
+    private SocialUserService socialUserService;
+    
+    private SlippLanguage slippLanguage;
+    
+    @Before
+    public void setup() {
+        slippLanguage = new SlippLanguage(socialUserService);
+    }
+	
 	@Test
 	public void createImageList() throws Exception {
 		String contents = TestFileReader.read(this, "images.txt");
@@ -37,7 +54,7 @@ public class SlippWikiUtilsTest {
 	@Test
 	public void convert() throws Exception {
 		String contents = TestFileReader.read(this, "text.txt");
-		String actual = WikiContents.parse(contents);
+		String actual = WikiContents.parse(contents, slippLanguage);
 		logger.debug("convert contents : {}", actual);
 	}
 }

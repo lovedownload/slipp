@@ -28,7 +28,7 @@ attribute name="isBest" required="true" rtexprvalue="true" type="java.lang.Boole
 		</div>
 	</div>
 	<div class="doc">
-		<div class="text">${sf:wiki(each.contents)}</div>
+		<div class="text"><sl:html contents="${each.contents}"/></div>
 		<div class="util">
 			<a class="likeAnswerBtn btn btn-like" data-answer-id="${each.answerId}" href="#" alt="${each.sumLike}">
 				<span class="star">★</span>

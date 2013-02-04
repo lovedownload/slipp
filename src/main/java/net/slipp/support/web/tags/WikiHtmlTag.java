@@ -1,4 +1,4 @@
-package net.slipp.support.wiki.tag;
+package net.slipp.support.web.tags;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import net.slipp.support.wiki.SlippLanguage;
+import net.slipp.support.wiki.SlippWikiUtils;
 import net.slipp.support.wiki.WikiContents;
 
 import org.apache.commons.lang.StringUtils;
@@ -16,13 +17,12 @@ import org.springframework.beans.factory.ObjectFactory;
  * Wiki 구문을 HTML로 변경해준다.
  */
 public class WikiHtmlTag extends SimpleTagSupport {
-
 	private static ObjectFactory<SlippLanguage> slippWikiMarkupLanguageObjectFactory;
 
 	/** 마크업 문자열 */
 	private String contents;
 
-	public void setArcheageWikiMarkupLanguageObjectFactory(
+	public void setSlippLanguageObjectFactory(
 			ObjectFactory<SlippLanguage> slippWikiMarkupLanguageObjectFactory) {
 		WikiHtmlTag.slippWikiMarkupLanguageObjectFactory = slippWikiMarkupLanguageObjectFactory;
 	}
@@ -44,7 +44,7 @@ public class WikiHtmlTag extends SimpleTagSupport {
 
 	private void printHtml(JspWriter out) throws IOException {
 	    String parsedContents = WikiContents.parse(contents, getMarkupLanguage());
-	    out.write(parsedContents);
+	    out.write(SlippWikiUtils.replaceImages(parsedContents));
 	}
 
 	private SlippLanguage getMarkupLanguage() {

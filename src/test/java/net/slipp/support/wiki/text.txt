@@ -3,6 +3,8 @@
 때문에, SourceTree 라고 하는 애플리케이션을 이용해서 github과 연동하여 활용하고 
 있습니다.
 
+@자바지기
+
 - SourceTree : http://www.sourcetreeapp.com/
 
   SourceTree와 연동을 해두니, 소스의 브랜치(Branch)를 따서 개발하다가 합치고(Merge)를

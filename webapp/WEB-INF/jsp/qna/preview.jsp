@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-${sf:wiki(contents)}
+<sl:html contents="${contents}"/>
 </body>
 </html>

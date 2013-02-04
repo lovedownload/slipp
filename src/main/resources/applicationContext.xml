@@ -102,4 +102,21 @@
 	<task:annotation-driven executor="slippExecutor"/>
 	
 	<task:executor id="slippExecutor" pool-size="5"/>
+	
+	<bean id="mentionReplacementToken" class="net.slipp.support.wiki.MentionReplacementToken" scope="prototype">
+		<constructor-arg ref="socialUserService" />
+	</bean>
+
+	<bean id="slippLanguage" class="net.slipp.support.wiki.SlippLanguage" scope="prototype">
+		<constructor-arg ref="socialUserService" />
+	</bean>
+
+	<bean id="slippLanguageObjectFactory"
+		class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+		<property name="targetBeanName" value="slippLanguage" />
+	</bean>
+	
+	<bean class="net.slipp.support.web.tags.WikiHtmlTag">
+		<property name="slippLanguageObjectFactory" ref="slippLanguageObjectFactory" />
+	</bean>	
 </beans>

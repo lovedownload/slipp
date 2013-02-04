@@ -4,8 +4,6 @@ import java.util.Collection;
 
 import net.slipp.domain.user.SocialUser;
 import net.slipp.support.utils.SlippStringUtils;
-import net.slipp.support.wiki.SlippWikiUtils;
-import net.slipp.support.wiki.WikiContents;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -167,11 +165,6 @@ public class SlippFunctions {
 
 	public static boolean isWriter(SocialUser writer, SocialUser loginUser) {
 		return writer.isSameUser(loginUser);
-	}
-
-	public static String wiki(String contents) {
-		String result = WikiContents.parse(contents);
-		return SlippWikiUtils.replaceImages(result);
 	}
 
 	public static String stripHttp(String url) {

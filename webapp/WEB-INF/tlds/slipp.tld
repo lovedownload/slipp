@@ -21,4 +21,15 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>html</name>
+		<tag-class>net.slipp.support.web.tags.WikiHtmlTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>contents</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>	
 </taglib>

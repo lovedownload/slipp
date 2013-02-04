@@ -28,6 +28,11 @@ public class SocialUserBuilder {
         return this;
     }
     
+    public SocialUserBuilder withProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+        return this;
+    }
+    
     public SocialUser build() {
         SocialUser socialUser = new SocialUser();
         socialUser.setUserId(userId);

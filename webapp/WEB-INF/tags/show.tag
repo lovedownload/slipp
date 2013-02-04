@@ -29,7 +29,7 @@ attribute name="question" required="true" rtexprvalue="true" type="net.slipp.dom
 								</c:forEach>
 								</ul>
 							</div>
-							<div class="text">${sf:wiki(question.contents)}</div>
+							<div class="text"><sl:html contents="${question.contents}"/></div>
 							<div class="share">
 								<div class="facebook sns">
 									<div id="fb-root"></div>
