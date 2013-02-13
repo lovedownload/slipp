@@ -57,4 +57,8 @@ public class SocialUserService {
 				connectionKey.getProviderId(), connectionKey.getProviderUserId());
 		return socialUser;
 	}
+	
+    public List<SocialUser> findsBySearch(String keyword) {
+        return socialUserRepository.findByUserIdLike(keyword + "%");
+    }
 }
