@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%><%@ tag body-content="empty" %><%@
 taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@
 taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><%@
+taglib prefix="sl" uri="http://www.slipp.net/tags"%><%@
 taglib prefix="sf" uri="http://slipp.net/functions"%><%@
 attribute name="question" required="true" rtexprvalue="true" type="net.slipp.domain.qna.Question" description="질문"%>
 

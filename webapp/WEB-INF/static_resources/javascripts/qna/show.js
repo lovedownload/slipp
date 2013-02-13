@@ -44,27 +44,8 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	addNickNames();
-	
-	replaceNicknames();
-	
 	setShowRealSizeImg();
 
-	function replaceNicknames(){
-		$('div.doc div.text').each(function(){
-			var cont = $(this).html();
-			for (var key in nickNames) {
-				cont = cont.replace(new RegExp('@' + key, 'gi'), '<a href="'+nickNames[key]+'">'+key+'</a>');
-			}
-			
-			$(this).html(cont);
-		});
-	}
-	function addNickNames(){
-		$('.author-name').each(function(){
-			nickNames[$(this).text()] = $(this).attr('href');
-		});
-	}
 	function arroundSpace(contents, orgUserId){
 		if( $.trim(contents).length > 0) {
 			contents = contents +" "+orgUserId +" ";
@@ -73,12 +54,14 @@ $(document).ready(function(){
 		}
 		return contents;
 	}
+	
 	function setShowRealSizeImg() {
 		var images = $('div.doc div.text img');
 		var imageUrl = images.attr('src');
 
 		images.wrap('<a href="'+imageUrl+'" target="_blank"></a>');
 	}
+	
 	$(".likeAnswerBtn").on("click", function(){
 		var answerId = $(this).data("answer-id");
 		var $form = $('#likeAnswerForm');
